@@ -1,15 +1,15 @@
 <script>
-
+    import {base} from "$app/paths";
 </script>
 
 <header>
-    <h1><a href="/">JemappeIIe</a></h1>
+    <h1><a href={base + "/"}>JemappeIIe</a></h1>
     <p>Description...</p>
     <nav>
         <ul>
-            <li><a href="/">A</a></li>
-            <li><a href="/">B</a></li>
-            <li><a href="/">C</a></li>
+            <li><a href={base + "/"}>A</a></li>
+            <li><a href={base + "/"}>B</a></li>
+            <li><a href={base + "/"}>C</a></li>
         </ul>
     </nav>
 </header>
