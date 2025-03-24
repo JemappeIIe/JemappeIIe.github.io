@@ -6,17 +6,19 @@
         if (!localStorage.getItem("color-scheme")) {
             const userPrefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
             localStorage.setItem("color-scheme", userPrefersDarkMode ? "dark" : "light");
-        }
-        const currentColorScheme = localStorage.getItem("color-scheme");
-        if (currentColorScheme) {
-            setColorScheme(currentColorScheme);
+        } else {
+            const currentColorScheme = localStorage.getItem("color-scheme");
+            if (currentColorScheme) {
+                setColorScheme(currentColorScheme);
+            }
         }
     });
 
     function setColorScheme(colorScheme : string) {
-        if (colorScheme == "light" || colorScheme == "dark")
-        document.documentElement.dataset.colorScheme = colorScheme;
-        localStorage.setItem("color-scheme", colorScheme);
+        if (colorScheme == "light" || colorScheme == "dark") {
+            document.documentElement.dataset.colorScheme = colorScheme;
+            localStorage.setItem("color-scheme", colorScheme);
+        }
     }
 </script>
 
