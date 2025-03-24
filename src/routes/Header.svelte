@@ -1,11 +1,11 @@
 <script lang="ts">
     import {base} from "$app/paths";
-    import {onMount} from "svelte";
-    
+    import {onMount} from "svelte";   
+    let colorSchemeDisplayRepresentation: string = $state("");
     onMount(() => {
         if (!localStorage.getItem("color-scheme")) {
             const userPrefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            localStorage.setItem("color-scheme", userPrefersDarkMode ? "dark" : "light");
+            setColorScheme(userPrefersDarkMode ? "dark" : "light");
         } else {
             const currentColorScheme = localStorage.getItem("color-scheme");
             if (currentColorScheme) {
@@ -18,7 +18,13 @@
         if (colorScheme == "light" || colorScheme == "dark") {
             document.documentElement.dataset.colorScheme = colorScheme;
             localStorage.setItem("color-scheme", colorScheme);
+            colorSchemeDisplayRepresentation = colorScheme === "light" ? "🌄": "🌅";
         }
+    }
+
+    function toggleColorScheme() {
+        const colorScheme = localStorage.getItem("color-scheme") === "light" ? "dark" : "light";
+        setColorScheme(colorScheme);
     }
 </script>
 
@@ -30,23 +36,32 @@
             <li><a href={base + "/"}>A</a></li>
             <li><a href={base + "/"}>B</a></li>
             <li><a href={base + "/"}>C</a></li>
+            <button class="colorSchemeToggleButton" onclick={toggleColorScheme}>{colorSchemeDisplayRepresentation}</button>
         </ul>
     </nav>
-    <button onclick={() => setColorScheme("dark")}>Dark</button>
-    <button onclick={() => setColorScheme("light")}>Light</button>
 </header>
 
 <style>
     header {
         text-align: center;
-        padding: 10px 0px;
-        background-color: gray;
+        justify-content: center;
+        background-color: var(--nav-color);
+        padding: 20px 0px;
+        box-shadow: 0px 10px 25px 0px #00000080;
     }
     ul {
         display: flex;
         justify-content: center;
         list-style: none;
-        padding: 0px;
-        gap: 10px;
+        gap: 20px;
+    }
+    h1 {
+        margin: 0;
+        a {
+            text-decoration: underline;
+        }
+    }
+    a {
+        text-decoration: none;
     }
 </style>

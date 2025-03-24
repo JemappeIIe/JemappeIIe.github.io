@@ -4,10 +4,8 @@
 
 <Header />
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa laborum, quo temporibus perferendis deserunt animi quod, consectetur iusto officiis necessitatibus incidunt delectus cupiditate, similique autem quam molestias illo repellendus nobis.</p>
 
 <style>
-    h1 {
-        color: red;
-    }
+    
 </style>
