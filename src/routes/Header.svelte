@@ -1,5 +1,21 @@
-<script>
+<script lang="ts">
     import {base} from "$app/paths";
+    import {onMount} from "svelte";
+    onMount(() => {
+        if (localStorage.getItem("theme") === null) {
+            const userPrefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            localStorage.setItem("theme", userPrefersDarkMode ? "dark" : "light");
+        }
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme) {
+            setTheme(currentTheme);
+        }
+    });
+
+    function setTheme(theme : string) {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+    }
 </script>
 
 <header>
@@ -12,6 +28,8 @@
             <li><a href={base + "/"}>C</a></li>
         </ul>
     </nav>
+    <button onclick={() => setTheme("dark")}>Dark</button>
+    <button onclick={() => setTheme("light")}>Light</button>
 </header>
 
 <style>
