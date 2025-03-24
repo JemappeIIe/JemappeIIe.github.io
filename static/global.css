@@ -4,14 +4,14 @@
 	box-sizing: border-box;
 }
 
-[data-theme="light"] {
+[data-color-scheme="light"] {
 	--font-color: #222;
 	--bg-color: #fff;
 	--accent-color: steelblue;
 	--nav-color: #eee;
 }
 
-[data-theme="dark"] {
+[data-color-scheme="dark"] {
 	--font-color: #fff;
 	--bg-color: #222;
 	--accent-color: #ff0050;

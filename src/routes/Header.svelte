@@ -1,20 +1,22 @@
 <script lang="ts">
     import {base} from "$app/paths";
     import {onMount} from "svelte";
+    
     onMount(() => {
-        if (localStorage.getItem("theme") === null) {
+        if (!localStorage.getItem("color-scheme")) {
             const userPrefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            localStorage.setItem("theme", userPrefersDarkMode ? "dark" : "light");
+            localStorage.setItem("color-scheme", userPrefersDarkMode ? "dark" : "light");
         }
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme) {
-            setTheme(currentTheme);
+        const currentColorScheme = localStorage.getItem("color-scheme");
+        if (currentColorScheme) {
+            setColorScheme(currentColorScheme);
         }
     });
 
-    function setTheme(theme : string) {
-        document.documentElement.dataset.theme = theme;
-        localStorage.setItem("theme", theme);
+    function setColorScheme(colorScheme : string) {
+        if (colorScheme == "light" || colorScheme == "dark")
+        document.documentElement.dataset.colorScheme = colorScheme;
+        localStorage.setItem("color-scheme", colorScheme);
     }
 </script>
 
@@ -28,8 +30,8 @@
             <li><a href={base + "/"}>C</a></li>
         </ul>
     </nav>
-    <button onclick={() => setTheme("dark")}>Dark</button>
-    <button onclick={() => setTheme("light")}>Light</button>
+    <button onclick={() => setColorScheme("dark")}>Dark</button>
+    <button onclick={() => setColorScheme("light")}>Light</button>
 </header>
 
 <style>
