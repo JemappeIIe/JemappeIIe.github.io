@@ -1,3 +1,11 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+.nav-element {
+    @apply content-center font-serif text-neutral-600 hover:text-red-400 hover:cursor-pointer transition duration-200 ease-in text-lg;
+}
+
+.nav-break {
+    @apply border border-neutral-200;
+}
