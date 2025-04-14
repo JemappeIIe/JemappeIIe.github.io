@@ -35,7 +35,7 @@
 	}
 </script>
 
-<!-- Big navbar -->
+<!-- Navbar -->
 <nav class="relative flex items-center justify-between bg-neutral-100 p-4 dark:bg-neutral-900">
 	<a aria-label="Home" href="{base}/" class="icon-box">
 		{@html homeIcon}
