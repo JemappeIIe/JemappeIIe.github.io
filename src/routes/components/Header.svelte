@@ -62,7 +62,7 @@
 	<button onclick={toggleTheme} aria-label="Toggle theme" class="icon-box">{@html themeIcon}</button
 	>
 </nav>
-<!-- Small navbar -->
+<!-- Dropdown menu -->
 <div id="navbar-menu" class="hidden">
 	<nav
 		class="fixed top-0 bottom-0 left-0 flex w-full flex-col bg-neutral-100 p-4 dark:bg-neutral-900"
