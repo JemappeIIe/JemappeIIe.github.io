@@ -1,7 +1,7 @@
 import { svelteTesting } from '@testing-library/svelte/vite';
-import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
@@ -9,10 +9,7 @@ export default defineConfig({
 		workspace: [
 			{
 				extends: './vite.config.ts',
-				plugins: [
-					svelteTesting(),
-					tailwindcss()
-				],
+				plugins: [svelteTesting()],
 				test: {
 					name: 'client',
 					environment: 'jsdom',

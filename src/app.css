@@ -8,3 +8,19 @@
     --color-lapis-lazuli: #1f5673;
     --font-inria-serif: 'Inria Serif', serif;
 }
+
+.icon-box {
+    @apply rounded-full p-4 hover:bg-neutral-200 dark:hover:bg-neutral-800 cursor-pointer;
+}
+
+.icon-box > svg {
+    @apply fill-neutral-800 dark:fill-neutral-200;
+}
+
+.icon-box:hover > svg {
+    @apply fill-red-500 dark:fill-indigo-500;
+}
+
+.nav-item {
+    @apply block rounded-full py-4 px-8 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500;
+}
