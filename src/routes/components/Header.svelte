@@ -29,8 +29,25 @@
 
 	function toggleDropdownMenu() {
 		const dropdownMenu = document.getElementById('dropdown-menu') as HTMLElement;
-		const isClosed: boolean = dropdownMenu.classList.toggle('hidden');
-		menuIcon = isClosed ? openMenuIcon : closeMenuIcon;
+		const isOpen = dropdownMenu.classList.contains('flex');
+		if (isOpen) {
+			// Close
+			dropdownMenu.classList.remove('flex');
+			dropdownMenu.classList.add('hidden');
+			menuIcon = openMenuIcon;
+		} else {
+			// Open
+			dropdownMenu.classList.remove('hidden');
+			dropdownMenu.classList.add('flex');
+			menuIcon = closeMenuIcon;
+		}
+	}
+
+	function closeDropdownMenu() {
+		const dropdownMenu = document.getElementById('dropdown-menu') as HTMLElement;
+		dropdownMenu.classList.remove('flex');
+		dropdownMenu.classList.add('hidden');
+		menuIcon = openMenuIcon;
 	}
 </script>
 
@@ -48,34 +65,47 @@
 		</button>
 		<ul class="hidden lg:flex lg:w-auto lg:items-center lg:gap-8">
 			<li>
-				<a class="nav-item" href="{base}/">Home</a>
+				<a
+					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
+					href="{base}/">Home</a
+				>
 			</li>
 			<li>
-				<a class="nav-item" href="{base}/">About</a>
+				<a
+					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
+					href="{base}/#about">About</a
+				>
 			</li>
 			<li>
-				<a class="nav-item" href="{base}/">Projects</a>
+				<a
+					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
+					href="{base}/#projects">Projects</a
+				>
 			</li>
 			<li>
-				<a class="nav-item" href="{base}/">Contact</a>
+				<a
+					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
+					href="{base}/#contact">Contact</a
+				>
 			</li>
 		</ul>
 		<button onclick={toggleTheme} aria-label="Toggle theme" class="icon-box"
 			>{@html themeIcon}</button
 		>
 	</nav>
-	<ul id="dropdown-menu" class="hidden w-full flex-col lg:hidden">
+	<!-- Dropdown menu -->
+	<ul id="dropdown-menu" class="hidden w-full flex-col gap-4 p-4 lg:hidden">
 		<li>
-			<a class="dropdown-menu-item" href="{base}/">Home</a>
+			<a class="dropdown-menu-item" href="{base}/" onclick={closeDropdownMenu}>Home</a>
 		</li>
 		<li>
-			<a class="dropdown-menu-item" href="{base}/">About</a>
+			<a class="dropdown-menu-item" href="{base}/#about" onclick={closeDropdownMenu}>About</a>
 		</li>
 		<li>
-			<a class="dropdown-menu-item" href="{base}/">Projects</a>
+			<a class="dropdown-menu-item" href="{base}/#projects" onclick={closeDropdownMenu}>Projects</a>
 		</li>
 		<li>
-			<a class="dropdown-menu-item" href="{base}/">Contact</a>
+			<a class="dropdown-menu-item" href="{base}/#contact" onclick={closeDropdownMenu}>Contact</a>
 		</li>
 	</ul>
 </header>
