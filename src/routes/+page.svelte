@@ -1,12 +1,12 @@
 <script>
-	import { base } from '$app/paths';
+	import image from '$lib/images/about/upper.png';
 	import gitHubIcon from '$lib/icons/github.svg?raw';
 	import mailIcon from '$lib/icons/mail.svg?raw';
 </script>
 
 <div class="flex max-w-140 flex-col gap-8">
 	<div id="about" class="flex h-fit rounded-2xl bg-neutral-200 shadow-lg dark:bg-neutral-800">
-		<img alt="Me" src="/images/about/upper.png" class="max-w-1/2 rounded-l-2xl object-cover" />
+		<img src={image} alt="s" class="max-w-1/2 rounded-l-2xl object-cover" />
 		<div class="flex flex-col p-4">
 			<h1 class="mb-4 font-bold text-red-500 dark:text-indigo-500">About me</h1>
 			<p
