@@ -39,13 +39,13 @@
 	>
 		<h1 class="font-bold text-red-500 dark:text-indigo-500">Contact</h1>
 		<div
-			class="flex items-center rounded-2xl bg-neutral-100 text-neutral-800 underline dark:bg-neutral-900 dark:text-neutral-100 [&>svg]:scale-50 [&>svg]:fill-neutral-900 [&>svg]:dark:fill-neutral-100"
+			class="flex items-center gap-4 rounded-2xl bg-neutral-100 p-4 text-neutral-800 underline dark:bg-neutral-900 dark:text-neutral-100 [&>svg]:size-15"
 		>
 			{@html gitHubIcon}
 			https://github.com/JemappeIIe
 		</div>
 		<div
-			class="flex items-center rounded-2xl bg-neutral-100 text-neutral-800 underline dark:bg-neutral-900 dark:text-neutral-100 [&>svg]:scale-50 [&>svg]:fill-neutral-900 [&>svg]:dark:fill-neutral-100"
+			class="flex items-center gap-4 rounded-2xl bg-neutral-100 p-4 text-neutral-800 underline dark:bg-neutral-900 dark:text-neutral-100 [&>svg]:size-15"
 		>
 			{@html mailIcon}
 			jemappeiie.contact@gmail.com
