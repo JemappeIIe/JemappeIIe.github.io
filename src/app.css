@@ -4,27 +4,21 @@
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @theme {
-    --color-tomato: #f95738;
-    --color-lapis-lazuli: #1f5673;
     --font-inria-serif: 'Inria Serif', serif;
 }
 
 .icon-box {
-    @apply rounded-full p-4 hover:bg-neutral-200 dark:hover:bg-neutral-800 cursor-pointer;
+    @apply p-1 hover:bg-black dark:hover:bg-white cursor-pointer;
 }
 
 .icon-box > svg {
-    @apply fill-neutral-800 dark:fill-neutral-200;
+    @apply fill-black dark:fill-white ;
 }
 
 .icon-box:hover > svg {
-    @apply fill-red-500 dark:fill-indigo-500;
+    @apply fill-white dark:fill-black;
 }
 
 .nav-item {
-    @apply rounded-full py-4 px-8 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500;
-}
-
-.dropdown-menu-item {
-    @apply block rounded-full py-4 px-8 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500;
+    @apply text-center font-semibold p-1 text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black;
 }

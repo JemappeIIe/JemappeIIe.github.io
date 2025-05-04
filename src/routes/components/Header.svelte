@@ -55,7 +55,7 @@
 <header class="flex flex-col items-center">
 	<!-- Navbar -->
 	<nav
-		class="relative flex w-full items-center justify-between bg-neutral-100 p-4 dark:bg-neutral-900"
+		class="relative flex w-full items-center justify-between bg-neutral-100 p-5 lg:w-fit lg:gap-50 dark:bg-neutral-900"
 	>
 		<a aria-label="Home" href="{base}/" class="icon-box">
 			{@html homeIcon}
@@ -63,30 +63,18 @@
 		<button onclick={toggleDropdownMenu} aria-label="Toggle menu" class="icon-box lg:hidden">
 			{@html menuIcon}
 		</button>
-		<ul class="hidden lg:flex lg:w-auto lg:items-center lg:gap-8">
+		<ul class="hidden lg:flex lg:w-auto lg:items-center lg:gap-10">
 			<li>
-				<a
-					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
-					href="{base}/">Home</a
-				>
+				<a class="nav-item" href="{base}/">Home</a>
 			</li>
 			<li>
-				<a
-					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
-					href="{base}/#about">About</a
-				>
+				<a class="nav-item" href="{base}/#about">About</a>
 			</li>
 			<li>
-				<a
-					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
-					href="{base}/#projects">Projects</a
-				>
+				<a class="nav-item" href="{base}/#projects">Projects</a>
 			</li>
 			<li>
-				<a
-					class="rounded-full px-8 py-4 text-center font-semibold text-neutral-800 hover:bg-neutral-200 hover:text-red-500 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-indigo-500"
-					href="{base}/#contact">Contact</a
-				>
+				<a class="nav-item" href="{base}/#contact">Contact</a>
 			</li>
 		</ul>
 		<button onclick={toggleTheme} aria-label="Toggle theme" class="icon-box"
@@ -94,18 +82,18 @@
 		>
 	</nav>
 	<!-- Dropdown menu -->
-	<ul id="dropdown-menu" class="hidden w-full flex-col gap-4 p-4 lg:hidden">
+	<ul id="dropdown-menu" class="hidden w-full flex-col gap-5 px-5 pb-5 lg:hidden">
 		<li>
-			<a class="dropdown-menu-item" href="{base}/" onclick={closeDropdownMenu}>Home</a>
+			<a class="nav-item block" href="{base}/" onclick={closeDropdownMenu}>Home</a>
 		</li>
 		<li>
-			<a class="dropdown-menu-item" href="{base}/#about" onclick={closeDropdownMenu}>About</a>
+			<a class="nav-item block" href="{base}/#about" onclick={closeDropdownMenu}>About</a>
 		</li>
 		<li>
-			<a class="dropdown-menu-item" href="{base}/#projects" onclick={closeDropdownMenu}>Projects</a>
+			<a class="nav-item block" href="{base}/#projects" onclick={closeDropdownMenu}>Projects</a>
 		</li>
 		<li>
-			<a class="dropdown-menu-item" href="{base}/#contact" onclick={closeDropdownMenu}>Contact</a>
+			<a class="nav-item block" href="{base}/#contact" onclick={closeDropdownMenu}>Contact</a>
 		</li>
 	</ul>
 </header>
