@@ -55,7 +55,7 @@
 <header class="flex flex-col items-center">
 	<!-- Navbar -->
 	<nav
-		class="relative flex w-full items-center justify-between bg-neutral-100 p-5 lg:w-fit lg:gap-50 dark:bg-neutral-900"
+		class="relative flex w-full items-center justify-between bg-inherit p-5 lg:w-1/2 lg:min-w-fit lg:gap-40"
 	>
 		<a aria-label="Home" href="{base}/" class="icon-box">
 			{@html homeIcon}

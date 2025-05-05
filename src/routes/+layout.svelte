@@ -7,7 +7,7 @@
 
 <Header />
 
-<div class="m-auto mb-8 flex max-w-9/10 justify-center">
+<div class="m-auto mb-5 flex max-w-9/10 justify-center">
 	{@render children()}
 </div>
 
