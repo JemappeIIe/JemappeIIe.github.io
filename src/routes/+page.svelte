@@ -4,7 +4,7 @@
 	import mailIcon from '$lib/icons/mail.svg?raw';
 </script>
 
-<div class="flex flex-col gap-10 lg:w-1/2">
+<div class="flex w-9/10 flex-col gap-10 md:w-2/3 lg:w-1/2">
 	<div id="about" class="content-box border-1 border-black dark:border-white">
 		<img
 			alt="Me"
@@ -28,19 +28,21 @@
 			</p>
 		</div>
 	</div>
-	<div id="contact" class="content-box flex-col border-1 border-black p-5 dark:border-white">
+	<div id="contact" class="content-box h-fit flex-col border-1 border-black p-5 dark:border-white">
 		<h1 class="font-bold text-black dark:text-white">Contact</h1>
 		<div
 			class="flex items-center gap-5 border-1 border-black p-5 text-neutral-800 underline dark:border-white dark:text-white [&>svg]:size-15"
 		>
 			{@html gitHubIcon}
-			https://github.com/JemappeIIe
+			<a href="https://github.com/JemappeIIe" class="break-all">https://github.com/JemappeIIe</a>
 		</div>
 		<div
 			class="flex items-center gap-5 border-1 border-black p-5 text-neutral-800 underline dark:border-white dark:text-white [&>svg]:size-15"
 		>
 			{@html mailIcon}
-			jemappeiie.contact@gmail.com
+			<a href="mailto:jemappeiie.contact@gmail.com" class="break-all"
+				>jemappeiie.contact@gmail.com</a
+			>
 		</div>
 	</div>
 </div>
