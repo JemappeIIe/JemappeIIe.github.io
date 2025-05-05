@@ -20,6 +20,14 @@
 			document.documentElement.dataset.theme = theme;
 			localStorage.setItem('theme', theme);
 			themeIcon = theme == 'light' ? darkIcon : lightIcon;
+			let metaTag = document.querySelector('meta[name="theme-color"]');
+			if (!metaTag) {
+				metaTag = document.createElement('meta');
+				metaTag.setAttribute('name', 'theme-color');
+				document.head.appendChild(metaTag);
+			}
+			const themeColor = theme == 'light' ? '#fff' : '#000';
+			metaTag.setAttribute('content', themeColor);
 		}
 	}
 
