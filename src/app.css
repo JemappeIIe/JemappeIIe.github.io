@@ -8,7 +8,7 @@
 }
 
 .icon-box {
-    @apply hover:bg-black dark:hover:bg-white cursor-pointer;
+    @apply p-1 hover:bg-black dark:hover:bg-white cursor-pointer;
 }
 
 .icon-box > svg {
