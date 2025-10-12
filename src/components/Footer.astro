@@ -1,0 +1,91 @@
+---
+import sunIcon from "heroicons/24/outline/sun.svg?raw";
+import moonIcon from "heroicons/24/outline/moon.svg?raw";
+import systemIcon from "heroicons/24/outline/computer-desktop.svg?raw";
+
+const username = "JemappeIIe";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="flex justify-between items-center mt-5 px-5 sm:px-10">
+    <p class="flex align-middle items-center content-center">
+        © {currentYear}
+        {username}
+    </p>
+    <ul class="flex gap-5">
+        <li>
+            <button
+                id="light-theme-button"
+                class="cursor-pointer theme-button p-2 hover:ring-2 ring-blue-500"
+            >
+                <span
+                    class="inline-block align-middle size-6"
+                    set:html={sunIcon}
+                    aria-label="Light theme"
+                />
+            </button>
+        </li>
+        <li>
+            <button
+                id="dark-theme-button"
+                class="cursor-pointer theme-button p-2 hover:ring-2 ring-blue-500"
+                ><span
+                    class="inline-block align-middle size-6"
+                    set:html={moonIcon}
+                    aria-label="Dark theme"
+                /></button
+            >
+        </li>
+        <li>
+            <button
+                id="system-theme-button"
+                class="cursor-pointer theme-button p-2 hover:ring-2 ring-blue-500"
+                ><span
+                    class="inline-block align-middle size-6"
+                    set:html={systemIcon}
+                    aria-label="System theme"
+                /></button
+            >
+        </li>
+    </ul>
+</footer>
+<script>
+    const lightThemeButton = document.getElementById("light-theme-button");
+    const darkThemeButton = document.getElementById("dark-theme-button");
+    const systemThemeButton = document.getElementById("system-theme-button");
+    const htmlElement = document.documentElement;
+
+    lightThemeButton?.addEventListener("click", () => {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("dark-mode", "false");
+        updateActiveButton("light");
+    });
+
+    darkThemeButton?.addEventListener("click", () => {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("dark-mode", "true");
+        updateActiveButton("dark");
+    });
+
+    systemThemeButton?.addEventListener("click", () => {
+        localStorage.removeItem("dark-mode");
+        const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches;
+        htmlElement.classList.toggle("dark", prefersDark);
+        updateActiveButton("system");
+    });
+
+    function updateActiveButton(selectedTheme: string) {
+        [lightThemeButton, darkThemeButton, systemThemeButton].forEach(
+            (button) => button?.classList.remove("active"),
+        );
+        if (selectedTheme === "light") {
+            lightThemeButton?.classList.add("active");
+        } else if (selectedTheme === "dark") {
+            darkThemeButton?.classList.add("active");
+        } else {
+            systemThemeButton?.classList.add("active");
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --color-bg: var(--color-blue-300);
+    --color-text: var(--color-blue-950);
+}
+
+.dark {
+    --color-bg: var(--color-blue-950);
+    --color-text: var(--color-blue-300);
+}
+
+body {
+    transition: background-color 100ms ease;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+@layer components {
+    .theme-button.active {
+        @apply ring-2 bg-blue-500/25;
+    }
+
+    .section-surface {
+        @apply p-5 flex flex-col w-full border-2 border-blue-500;
+        background-color: color-mix(in srgb, var(--color-bg) 80%, var(--color-white) 20%);
+    }
+
+    .dark .section-surface {
+        background-color: color-mix(in srgb, var(--color-bg) 80%, var(--color-black) 20%);
+    }
+
+    .section-title {
+        @apply text-lg font-semibold;
+    }
+
+    .section-subtitle {
+        @apply text-sm opacity-80 italic;
+    }
+
+    .section-content {
+        @apply flex flex-col gap-5;
+    }
+}

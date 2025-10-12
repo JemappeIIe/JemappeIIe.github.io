@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import gitHubIcon from "../assets/github.svg?raw";
+import linkedInLogo from "../assets/linkedin.svg?raw";
+---
+
+<Layout>
+	<Section title="About me" subtitle="">
+		<p>
+			Hi - I'm Luka. I study Computational Mathematics at the University
+			of Oslo and I'm building my skills in software development. Linux
+			enthusiast with an interest in finance.
+		</p>
+	</Section>
+	<Section id="projects" title="Projects" subtitle="" aside>
+		<span class="italic opacity-80 text-sm">Work in progress...</span>
+	</Section>
+	<Section id="contact" title="Contact" subtitle="" aside>
+		<ul class="flex flex-wrap sm:flex-nowrap gap-5">
+			<li>
+				<a
+					class="flex gap-2.5 hover:underline focus:underline decoration-2"
+					href="https://www.github.com/JemappeIIe"
+					><span set:html={gitHubIcon} /><span>JemappeIIe</span></a
+				>
+			</li>
+			<li>
+				<a
+					class="flex gap-2.5 hover:underline focus:underline decoration-2"
+					href="https://www.linkedin.com/in/luka-chernyshov/"
+					><span set:html={linkedInLogo} /><span>Luka Chernyshov</span
+					></a
+				>
+			</li>
+		</ul>
+	</Section>
+</Layout>

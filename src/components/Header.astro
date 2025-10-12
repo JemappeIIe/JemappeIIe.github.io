@@ -1,0 +1,88 @@
+---
+interface link {
+    icon: string;
+    href: string;
+    text: string;
+}
+const { links } = Astro.props;
+---
+
+<header>
+    <nav class="flex flex-col not-sm:items-center py-5 sm:px-10">
+        <button
+            id="menu-toggle-button"
+            class="cursor-pointer visible sm:hidden"
+            type="button"
+            aria-label="menu"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+        </button>
+        <ul
+            id="menu-link-list"
+            class="hidden sm:flex flex-col sm:flex-row items-center gap-5 not-sm:mt-5"
+        >
+            <li class="sm:mr-auto">
+                <a
+                    class="menu-link flex gap-2 hover:underline focus:underline decoration-2"
+                    href={links[0].href}
+                >
+                    <span class="size-6" set:html={links[0].icon} />
+                    <span>{links[0].text}</span>
+                </a>
+            </li>
+
+            {
+                links.slice(1).map((link: link) => (
+                    <li>
+                        <a
+                            class="menu-link flex gap-2.5 hover:underline focus:underline decoration-2"
+                            href={link.href}
+                        >
+                            <span class="size-6" set:html={link.icon} />
+                            <span>{link.text}</span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+</header>
+
+<script>
+    const menuToggleButton = document.getElementById("menu-toggle-button");
+    if (!menuToggleButton) throw new Error("Menu toggle button not found");
+
+    const menuLinkList = document.getElementById("menu-link-list");
+    if (!menuLinkList) throw new Error("Menu link list not found");
+
+    menuToggleButton.addEventListener("click", () => {
+        const isOpen = menuLinkList.classList.contains("flex");
+        if (isOpen) {
+            menuLinkList.classList.replace("flex", "hidden");
+            menuToggleButton.setAttribute("aria-expanded", "false");
+        } else {
+            menuLinkList.classList.replace("hidden", "flex");
+            menuToggleButton.setAttribute("aria-expanded", "true");
+        }
+    });
+
+    const menuLinks = document.querySelectorAll(".menu-link");
+    menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            menuLinkList.classList.replace("flex", "hidden");
+            menuToggleButton.setAttribute("aria-expanded", "false");
+        });
+    });
+</script>
